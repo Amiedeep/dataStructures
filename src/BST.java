@@ -181,23 +181,29 @@ public class BST
         while(ptr!=null)
         {
             if(ptr.data==k)
-                break;
+            {
+                System.out.println("item found");
+                return true;
+            }
+                
             else if(ptr.data>k)
                 ptr=ptr.left;
             else
                 ptr=ptr.right;
         }
-        if(ptr==null)
-        {
-            System.out.println("item not found");
-            return false;
-        }
-            
-        else
-        {
-            System.out.println("item found");
-            return true;
-        }
+        System.out.println("item not found");
+        return false;
+//        if(ptr==null)
+//        {
+//            System.out.println("item not found");
+//            return false;
+//        }
+//            
+//        else
+//        {
+//            System.out.println("item found");
+//            return true;
+//        }
     }
     
     
