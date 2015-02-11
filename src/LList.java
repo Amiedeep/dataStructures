@@ -87,7 +87,7 @@ public class LList
     public static void main(String[] args) 
     {
         Scanner sc=new Scanner(System.in);
-        System.out.println("enter 1 to insert,2 to delete,3 o traverse,4 to reverse,5 to exit");
+        System.out.println("enter 1 to insert,2 to delete,3 o traverse,4 to reverse,5 to  search,6 to exit");
         int n=sc.nextInt();
         LList obj=new LList();
         while(n!=6)
