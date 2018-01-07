@@ -72,10 +72,12 @@ public class Graph {
 				includeEdgeVertices(currentEdge, verticesIncluded);
 			}
 		}
-		System.out.println("Following are the edges in " +
-				"the constructed MST");
+		System.out.println("Following are the edges in the constructed MST");
+		printGraph(includedEdges);
+	}
 
-		for(Edge edge : includedEdges) {
+	private void printGraph(List<Edge> edges) {
+		for(Edge edge : edges) {
 			System.out.println(edge.getStartIndex() + " -- " +
 					edge.getEndIndex() + " == " + edge.getWeight());
 		}
