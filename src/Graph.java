@@ -76,6 +76,42 @@ public class Graph {
 		printGraph(includedEdges);
 	}
 
+	public void printPrimsMST() {
+		int[] weightOfVertices = new int[this.vertices.length];
+		int[] parent = new int[this.vertices.length];
+		Boolean[] verticesIncluded = new Boolean[this.vertices.length];
+		Arrays.fill(verticesIncluded, false);
+		Arrays.fill(parent, -1);
+		Arrays.fill(weightOfVertices, Integer.MAX_VALUE);
+
+		weightOfVertices[0] = 0;
+
+		for(int i = 0; i < this.vertices.length - 1; i++) {
+			int indexOfVertex = findMinValueVertex(weightOfVertices);
+			verticesIncluded[indexOfVertex] = true;
+			updateAdjacentVerticesWeight(indexOfVertex, weightOfVertices);
+
+		}
+	}
+
+	private void updateAdjacentVerticesWeight(int indexOfVertex, int[] weightOfVertices) {
+
+	}
+
+	private int findMinValueVertex(int[] weightOfVertices) {
+		int minValueIndex = 0;
+		for(int i=1; i < weightOfVertices.length; i++) {
+			if(weightOfVertices[i] < weightOfVertices[minValueIndex]){
+				minValueIndex = i;
+			}
+		}
+		return minValueIndex;
+	}
+
+	private int getMinValueIndex(int[] numbers){
+
+	}
+
 	private void printGraph(List<Edge> edges) {
 		for(Edge edge : edges) {
 			System.out.println(edge.getStartIndex() + " -- " +
