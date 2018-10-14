@@ -55,6 +55,18 @@ public class BinaryTree {
         /* now recur on right child */
         printInorder(node.getRight());
     }
+
+    public boolean isBST(Node root) {
+        return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBST(Node node, int minValue, int maxValue) {
+        if(node == null)
+            return true;
+
+        return node.getData() > minValue && node.getData() < maxValue && isBST(node.getLeft(), minValue, node.getData()) &&
+                isBST(node.getRight(), node.getData(), maxValue);
+    }
 }
 
 class Node
