@@ -108,10 +108,6 @@ public class Graph {
 		return minValueIndex;
 	}
 
-	private int getMinValueIndex(int[] numbers){
-
-	}
-
 	private void printGraph(List<Edge> edges) {
 		for(Edge edge : edges) {
 			System.out.println(edge.getStartIndex() + " -- " +
