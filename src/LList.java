@@ -1,4 +1,5 @@
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import static java.util.Objects.isNull;
@@ -79,7 +80,7 @@ public class LList
         System.out.println("linked list after reverse is :");
         traverse();
     }
-    void reverse(LListNode node)
+    private void reverse(LListNode node)
     {
         if(node.next.next!=null)
             reverse(node.next);
@@ -88,6 +89,18 @@ public class LList
         
         node.next.next=node;
     }
+
+    private LListNode reverseSecondHalf(LListNode node)
+    {
+        if(node.next == null)
+            return node;
+
+        LListNode lastNode = reverseSecondHalf(node.next);
+        node.next.next = node;
+        return  lastNode;
+    }
+
+
     public static void main(String[] args) 
     {
 //        Scanner sc=new Scanner(System.in);
@@ -96,10 +109,15 @@ public class LList
         linkedList.insert(40);
         linkedList.insert(20);
         linkedList.insert(60);
-        linkedList.insert(10);
-//        linkedList.insert(50);
+//        linkedList.insert(10);
+        linkedList.insert(50);
         linkedList.insert(30);
-        linkedList.root = linkedList.mergeSort(linkedList.root);
+        LListNode middleNode = linkedList.findMiddle(linkedList.root);
+        LListNode startNextHalfNode = linkedList.reverseSecondHalf(middleNode.next);
+        middleNode.next.next = null;
+        middleNode.next = startNextHalfNode;
+
+//        linkedList.root = linkedList.mergeSort(linkedList.root);
         linkedList.printList();
 
 //        int n=sc.nextInt();
